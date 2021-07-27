@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPropertiesManager : MonoBehaviour
 {
-    public LevelDataListManager levelDataListManager;
     public StaticUIElements uiElements;
     public string defaultSceneName;
     public GameObject[] createdElements;
@@ -25,24 +24,13 @@ public class PlayerPropertiesManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoad;
-        SceneManager.sceneLoaded += GenerateLevelInfo;
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        levelDataListManager.hasGeneratedItemDictionaries = false;
         GenerateUI();
         ResetPlayerProperites();
         SaveOnSceneLoad();
-    }
-
-    private void GenerateLevelInfo(Scene scene, LoadSceneMode mode)
-    {
-        if (SceneManager.GetActiveScene().name != "MainMenu")
-        {
-            levelDataListManager.GenerateItemDictionarys();
-            levelDataListManager.GenerateLevel();
-        }
     }
 
     private void GenerateUI()
@@ -66,14 +54,16 @@ public class PlayerPropertiesManager : MonoBehaviour
             PlayerProperties.currentScene = defaultSceneName;
             PlayerProperties.honey = 0;
             PlayerProperties.keys = 0;
-            PlayerProperties.numLevelsCompleted = 0;
-            PlayerProperties.levelDataList = new List<Level>();
+
         }
     }
 
     private void SaveOnSceneLoad()
     {
-        SaveSystem.Save(PlayerProperties.currentSaveName);
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            SaveSystem.Save(PlayerProperties.currentSaveName);
+        }
     }
 
     void Update()
