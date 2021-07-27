@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69fecb1696a03c459a29e8582bc78c9, type: 3}
+  m_Name: Player Stats
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  jumpForce: 8
+  extraJumps: 1
+  holdJumpTime: 0.3
+  doubleJumpForceMultiplier: 1.5
+  wallSlidingSpeed: 2
+  xWallForce: 7
+  yWallForce: 10
+  wallJumpTime: 0.1
+  gravityScale: 3
+  groundRaycastLength: 0.6
+  groundRaycastOffset: 0.49
+  wallRaycastLength: 0.6
+  jumpButtonGracePeriod: 0.34
+  useDoubleJumpOrBuffferRaycastLength: 1.3
