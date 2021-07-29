@@ -10,6 +10,7 @@ public class LevelSelect : MonoBehaviour
     public MenuGamepadSupport menuGamepadSupport;
     public GameObject grid;
     public GameObject buttonPrefab;
+    public LevelStatsDisplay levelStatDisplay;
 
     private int currentLevelIndex = 0;
 
@@ -27,6 +28,9 @@ public class LevelSelect : MonoBehaviour
         buttonObject.transform.GetChild(0).GetComponent<Text>().text = (currentLevelIndex+1).ToString();
         buttonObject.name = "Level" + currentLevelIndex+1 + "Button";
         int tempIndex = currentLevelIndex;
+
+        SetUpButtonScripts(buttonObject, tempIndex);
+
         buttonObject.GetComponent<Button>().onClick.AddListener(() => LoadLevel(levels.sceneList[tempIndex]));
         buttonObject.GetComponent<Button>().onClick.AddListener(() => SetCurrentLevelIndex(tempIndex));
 
@@ -40,6 +44,13 @@ public class LevelSelect : MonoBehaviour
             currentLevelIndex++;
             AddButton();
         }
+    }
+
+    public void SetUpButtonScripts(GameObject buttonObject, int sceneListIndex)
+    {
+        LevelButtonInfo levelButtonInfo = buttonObject.AddComponent<LevelButtonInfo>();
+        levelButtonInfo.sceneName = levels.sceneList[sceneListIndex];
+        levelButtonInfo.levelStatDisplay = levelStatDisplay;
     }
 
     public void LoadLevel(string levelString)

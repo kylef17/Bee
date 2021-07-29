@@ -9,6 +9,13 @@ public class SaveButtonController : MonoBehaviour
     public GameObject deleteButton;
     public Text buttonText;
 
+    private bool hasSetText;
+
+    void Start()
+    {
+        hasSetText = false;
+    }
+
     void Update()
     {
         if (SaveSystem.FindSave(saveFileInfo.fileName))
@@ -17,6 +24,7 @@ public class SaveButtonController : MonoBehaviour
             SaveData data = SaveSystem.ReturnSaveData(saveFileInfo.fileName);
             buttonText.text = saveFileInfo.fileName + "\n" + "\n" + "Current level: " + data.currentScene + "\n" + "Honey: " + data.honey.ToString()
                 + "\n" + "Keys: " + data.keys.ToString();
+            hasSetText = true;
         } else
         {
             deleteButton.SetActive(false);

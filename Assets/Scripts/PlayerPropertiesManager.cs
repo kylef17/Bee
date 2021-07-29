@@ -54,7 +54,7 @@ public class PlayerPropertiesManager : MonoBehaviour
             PlayerProperties.currentScene = defaultSceneName;
             PlayerProperties.honey = 0;
             PlayerProperties.keys = 0;
-
+            PlayerProperties.levelDataList = new List<LevelData>();
         }
     }
 

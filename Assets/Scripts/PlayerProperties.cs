@@ -8,5 +8,6 @@ public static class PlayerProperties
     public static int keys { get; set; }
     public static string currentScene { get; set; }
     public static string currentSaveName { get; set; }
-
+    public static List<LevelData> levelDataList { get; set; }
+ 
 }

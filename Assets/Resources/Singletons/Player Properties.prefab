@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6014302074698318219}
   - component: {fileID: 5107861576819557}
-  - component: {fileID: -1328929591935562251}
   m_Layer: 0
   m_Name: Player Properties
   m_TagString: Untagged
@@ -46,25 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a4c6d0b8e3cd34180068ec3e75f694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDataListManager: {fileID: -1328929591935562251}
   uiElements: {fileID: 11400000, guid: 7984460115aa9aa41ba1326853f31e58, type: 2}
   defaultSceneName: LevelSelect
   createdElements: []
---- !u!114 &-1328929591935562251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429809613465005962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598d773a6327cdc4f83cbd5a9715fecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemTags:
-  - Honey
-  - Key
 --- !u!1001 &7023452707836622662
 PrefabInstance:
   m_ObjectHideFlags: 0

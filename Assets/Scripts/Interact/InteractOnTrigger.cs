@@ -6,6 +6,7 @@ public class InteractOnTrigger : MonoBehaviour
 {
     public string playerTag = "Player";
     public Interactions interactions;
+    public EditDataOnPickup editDataOnPickup;
     public DestroyOnPickup destroyOnPickup;
 
     private bool canTriggerInteraction = true;
@@ -16,6 +17,11 @@ public class InteractOnTrigger : MonoBehaviour
         {
             interactions.Interact();
             StartCoroutine(waitToTriggerNewInteraction());
+
+            if (editDataOnPickup != null)
+            {
+                editDataOnPickup.EditData();
+            }
 
             if (destroyOnPickup != null)
             {
